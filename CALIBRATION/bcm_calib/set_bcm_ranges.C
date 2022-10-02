@@ -32,7 +32,7 @@ void set_bcm_ranges(TString basename="none",Int_t nrun=16432) {
  gStyle->SetPadLeftMargin(0.14);
    TFile *fsimc;
     TString inputroot;
-    inputroot="PROD_ROOTFILEs/cafe_replay_prod_16432_-1.root";
+    inputroot="ROOTfiles/prod/cafe_replay_prod_16432_-1.root";
      cout << " infile root = " << inputroot << endl;
    fsimc =  new TFile(inputroot);
   TTree *tsimc = (TTree*) fsimc->Get("TSP");
@@ -42,7 +42,7 @@ void set_bcm_ranges(TString basename="none",Int_t nrun=16432) {
    tsimc->SetBranchAddress("P.1MHz.scalerTime",&Time);
    //
    Double_t hmax=1000000;
-   TH2F *hUnser_Time = new TH2F("hUnser_Time",Form("Run %d ;   ; )",nrun),3000,0,6000, 1000,0,hmax);
+   TH2F *hUnser_Time = new TH2F("hUnser_Time",Form("Run %d)",nrun),3000,0,6000, 1000,0,hmax);
    //
 Long64_t nentries = tsimc->GetEntries();
 
@@ -50,6 +50,7 @@ Long64_t nentries = tsimc->GetEntries();
      		tsimc->GetEntry(i);
 	  hUnser_Time->Fill(Time,Unser);
 	}
+	
 	//
 	vector<Double_t> vxlo;
 	vector<Double_t> vxhi;
@@ -101,7 +102,7 @@ Long64_t nentries = tsimc->GetEntries();
        }
     //
     //check=1;
-    cout << " to quit set cont = 1 , cont ?" << endl;
+    cout << " to quit set cont = 1 , else press any other key to continue selection process " << endl;
     cin >> check ;
        }
      //
