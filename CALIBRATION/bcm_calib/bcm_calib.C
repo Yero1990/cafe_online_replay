@@ -52,66 +52,19 @@ bcm_calib(){
 
   Double_t cl1,cl2;
   string filename_ranges; 
-  cout << "file name for the ranges :" << endl; 
-  cout << "choose from : " << endl;
-  // cout << "ranges_dec17_1178.txt" << endl;
-  // cout << "ranges_dec_1181.txt" << endl;
-  //cout << "ranges_jan_1892.txt" << endl;
-  //cout << "ranges_march18_2757.txt "<< endl;
-  // cout << "ranges_may5_4322.txt"<<endl;
 
-  // djm Fall 18-Spring 19 run:
-  //  cout << "Fall '18-Spring '19 run:" << endl; 
-  //cout << "ranges_28Sept2018_4755.txt" << endl;
-   //  cout << "ranges_sept28_2018_4755.txt"<<endl;
-  //cout << "ranges_18Nov2018_6320.txt" << endl;
-  //cout << "ranges_18Nov2018_6320below60muA.txt" << endl;
-  //cout << "ranges_5April2019_8139.txt" << endl; 
-  //cout << "ranges_5April2019_8139below60muA.txt" << endl; 
-  //cout << "--------------------"<<endl;
 
-  // djm Summer 2019 run:
-  //cout << "Summer '19 run:" << endl; 
-  //cout << "ranges_26June2019_8450.txt" << endl;
-  //cout << "ranges_30July2019_9202.txt" << endl;
-  //cout << "ranges_3Aug2019_9379.txt" << endl; 
-// the following ranges are optimized for BCM1 and BCM2
-  //  cout << "ranges_22June2019_8402below60muA.txt"<<endl;
-  //cout << "ranges_26June2019_8450below60muA.txt"<<endl;
-  //cout << "ranges_30July2019_9202below60muA.txt"<<endl;
-  // the following range is optimized for BCM4A and BCM4B
-  //cout << "ranges_26June2019_8450above3muA.txt"<<endl;
-  // the following range is optimized for BCM4C
-  //cout << "ranges_26June2019_8450above3muAbelow60muA.txt"<<endl;
-  //cout << "--------------------"<<endl;
+  // define range filename
+  //filename_ranges = "bcm4a_ranges_Aug23_2022.txt";
+  filename_ranges = "bcm4b_ranges_Aug23_2022.txt";
 
-  // Winter 2019-Spring 2020 run:
-  // cout << "Winter 2019-Spring 2020 run:" << endl;
-  // cout << "ranges_18Dec2019_9728above2muA.txt" << endl;
-  // cout << "ranges_9Dec2019_9647.txt" << endl; 
-  // cout << "ranges_20Feb2020_10402.txt" << endl; 
-
-  //Summer-Fall 2020 run:
-  //  cout << "Summer-Fall 2020 run:" << endl;
-  //cout << "ranges_10Aug2020_10915.txt" << endl; 
-
- //Fall 2021 run:
-  //  cout << "Fall 2021 run:" << endl;
-  cout << "ranges_12Sept2021_11988.txt" << endl; 
-  cout << "ranges_12Sept2021_11988_5to45muA.txt" << endl; 
-  cout << "ranges_6Oct2021_12496.txt" << endl; 
-  cout << "ranges_6Oct2021_12496_5to40muA.txt" << endl; 
-  cout << "ranges_28Oct2021_12880.txt" << endl;
-  cout << "ranges_28Oct2021_12880_5to40muA.txt" << endl;
-  cout << "ranges_15Nov2021_13282.txt" << endl;
-  cout << "ranges_15Nov2021_13282_5to40muA.txt" << endl;
-
-  cin >> filename_ranges;
+  Int_t coin_run_NUM = 16432;
+  string root_fname = Form("cafe_replay_prod_%d_-1.root",coin_run_NUM);
+  
   std::vector<Double_t> r1,r2;
   ifstream infile(filename_ranges.c_str());
-  //ifstream infile("ranges_march18_2757.txt");
-  //ifstream infile("ranges_jan_1892.txt");
-  // ifstream infile("ranges_may5_4322.txt");
+
+  
   if(infile.fail()){
     cout << "Cannot open the file: " << endl;
     cout << "ok" << endl;   
@@ -134,33 +87,7 @@ bcm_calib(){
   cout << "size_rfile_trim= " << size_rfile_trim << endl; 
   cout << "     " << endl; 
 
-  Int_t hms_run_NUM ; 
-  Int_t shms_run_NUM ;
-  Int_t coin_run_NUM ;
-  //cout << "shms_run_NUM "<< endl;
-   cout << "coin_run_NUM "<< endl;
-   //cin >> shms_run_NUM ;
-   cin >> coin_run_NUM ; 
-  // cin >> hms_run_NUM ; 
-  
-
-   //Enable this for the December(HMS 1178 & HMS 1181) Run 
-  // TFile *f = new TFile(Form("../hallc_replay/ROOTfiles/hms_replay_scalers_%d_-1.root",hms_run_NUM),"READ"); // %d : expects integer; %f expects float 
-
-  //Enable this for the March Run 
-  //  TFile *f = new TFile(Form("../hallc_replay/ROOTfiles/shms_replay_scalers_%d_-1.root",hms_run_NUM),"READ"); // %d : expects integer; %f expects float 
-
-  // Enable this for the January & May & sept Run 
-  // TFile *f = new TFile(Form("../hallc_replay/ROOTfiles/coin_replay_scalers_%d_-1.root",hms_run_NUM),"READ"); // %d : expects integer; %f expects float 
-  
-  // Enable this from now on (I will copy over root files from the bcm calibrations so they don't get deleted.) 
-  //  TFile *f = new TFile(Form("coin_replay_scalers_%d_-1.root",coin_run_NUM),"READ"); // %d : expects integer; %f expects float 
-  //TFile *f = new TFile(Form("coin_replay_scalers_%d_-1.root",hms_run_NUM),"READ"); // %d : expects integer; %f expects float 
-    //  TFile *f = new TFile(Form("shms_replay_production_%d_latest.root",coin_run_NUM),"READ"); // %d : expects integer; %f expects float 
-  // TFile *f = new TFile(Form("shms_replay_production_%d_latest.root",shms_run_NUM),"READ"); // %d : expects integer; %f expects float 
-  // TFile *f = new TFile(Form("shms_replay_production_default_%d_-1.root",shms_run_NUM),"READ"); // %d : expects integer; %f expects float 
-   TFile *f = new TFile(Form("PROD_ROOTFILEs/cafe_replay_prod_%d_-1.root",coin_run_NUM),"READ"); // %d : expects integer; %f expects float 
-  // TFile *f = new TFile(Form("coin_replay_scalers_%d_-1.root",coin_run_NUM),"READ"); // %d : expects integer; %f expects float 
+  TFile *f = new TFile(root_fname.c_str(),"READ"); // %d : expects integer; %f expects float 
 
 
   //  TTree *T = (TTree*)f->Get("TSH"); // TSH : for HMS and TSP : for SHMS

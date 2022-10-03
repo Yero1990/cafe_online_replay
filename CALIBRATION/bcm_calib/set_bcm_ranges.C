@@ -30,36 +30,71 @@ void set_bcm_ranges(TString basename="none",Int_t nrun=16432) {
  gStyle->SetLabelSize(0.04,"XY");
  gStyle->SetTitleSize(0.06,"XY");
  gStyle->SetPadLeftMargin(0.14);
-   TFile *fsimc;
-    TString inputroot;
-    inputroot="ROOTfiles/prod/cafe_replay_prod_16432_-1.root";
-     cout << " infile root = " << inputroot << endl;
-   fsimc =  new TFile(inputroot);
-  TTree *tsimc = (TTree*) fsimc->Get("TSP");
- Double_t  Unser;
-   tsimc->SetBranchAddress("P.Unser.scalerRate",&Unser);
- Double_t  Time;
-   tsimc->SetBranchAddress("P.1MHz.scalerTime",&Time);
-   //
-   Double_t hmax=1000000;
-   TH2F *hUnser_Time = new TH2F("hUnser_Time",Form("Run %d)",nrun),3000,0,6000, 1000,0,hmax);
-   //
-Long64_t nentries = tsimc->GetEntries();
 
-	for (int i = 0; i < nentries; i++) {
-     		tsimc->GetEntry(i);
-	  hUnser_Time->Fill(Time,Unser);
-	}
-	
-	//
-	vector<Double_t> vxlo;
-	vector<Double_t> vxhi;
-  TCanvas *cUnser;
-     cUnser = new TCanvas("cunser","Unser", 700,700);
-     cUnser->Divide(1,1);
+ TFile *fsimc;
+ TString inputroot;
+
+ 
+ inputroot="cafe_replay_prod_16432_-1.root";
+ cout << " infile root = " << inputroot << endl;
+
+
+ fsimc =  new TFile(inputroot);
+ TTree *tsimc = (TTree*) fsimc->Get("TSP");
+
+ Double_t  Unser;
+ Double_t  BCM4A;
+ Double_t  BCM4B;
+ Double_t  BCM4C;
+
+ 
+ tsimc->SetBranchAddress("P.Unser.scalerRate",&Unser);
+ tsimc->SetBranchAddress("P.BCM4A.scalerRate",&BCM4A);
+ tsimc->SetBranchAddress("P.BCM4B.scalerRate",&BCM4B);
+ tsimc->SetBranchAddress("P.BCM4C.scalerRate",&BCM4C);
+
+ Double_t  Time;
+ tsimc->SetBranchAddress("P.1MHz.scalerTime",&Time);
+ //
+ Double_t hmax=1000000;
+ TH2F *hUnser_Time = new TH2F("hUnser_Time",Form("Run %d",nrun),3000,0,6000, 1000,200e3,700e3);
+ TH2F *hBCM_Time = new TH2F("hBCM_Time",Form("Run %d",nrun),3000,0,6000, 1000,-300,1100e3);
+
+ 
+ 
+ //
+ Long64_t nentries = tsimc->GetEntries();
+ 
+ for (int i = 0; i < nentries; i++) {
+   tsimc->GetEntry(i);
+   hUnser_Time->Fill(Time,Unser);
+   hBCM_Time->Fill(Time,BCM4B);
+
+ }
+ 
+ hBCM_Time->SetMarkerStyle(7);
+ hBCM_Time->SetMarkerColor(kBlue);
+ 
+   
+ //
+ vector<Double_t> vxlo;
+ vector<Double_t> vxhi;
+
+ TCanvas *cBCM;
+ cBCM = new TCanvas("cBCM","BCM", 700,700);
+ cBCM->Divide(1,1);
+ 
+
+     
      Int_t check=0;
      while (check==0) {
-     hUnser_Time->Draw("L");
+
+       //hUnser_Time->Draw("L");
+       hBCM_Time->Draw("L");
+       
+       hBCM_Time->SetMarkerStyle(7);
+       hBCM_Time->SetMarkerColor(kBlue);
+     
     for (Int_t j=0;j<vxlo.size();j++) {
       TLine *line1 = new TLine(vxlo[j],0,vxlo[j],hmax);
       TLine *line2 = new TLine(vxhi[j],0,vxhi[j],hmax);
@@ -69,8 +104,13 @@ Long64_t nentries = tsimc->GetEntries();
       line2->Draw();
        cout << vxlo[j] << " " << vxhi[j] << endl;
      }
-     
-      gPad->Update();
+    
+    hBCM_Time->SetMarkerStyle(7);
+    hBCM_Time->SetMarkerColor(kBlue);
+
+    gPad->Update();
+
+
     TCutG *tempg = (TCutG*) gPad->WaitPrimitive("CUTG","CutG");
     //     gPad->Update();
     if (!tempg) cout << " no cut" << endl;
@@ -99,7 +139,7 @@ Long64_t nentries = tsimc->GetEntries();
        vxlo.push_back(xlo);
       vxhi.push_back(xhi);
      
-       }
+    }
     //
     //check=1;
     cout << " to quit set cont = 1 , else press any other key to continue selection process " << endl;
