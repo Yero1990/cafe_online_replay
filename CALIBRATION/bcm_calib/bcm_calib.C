@@ -55,11 +55,14 @@ bcm_calib(){
 
 
   // define range filename
-  //filename_ranges = "bcm4a_ranges_Aug23_2022.txt";
-  filename_ranges = "bcm4b_ranges_Aug23_2022.txt";
+  //filename_ranges = "bcm4a_ranges_Aug23_2022_improved_50uA_limit.txt"; // 2nd iter (for bcm1,2 only, since they saturate above 50uA)
+  filename_ranges = "bcm4b_ranges_Aug23_2022_improved_cutoutSaturation.txt";
+  //filename_ranges = "bcm4b_ranges_Aug23_2022_improved.txt";  // 2nd iter
+  //filename_ranges = "bcm4a_ranges_Aug23_2022_improved.txt";  // 2nd iter
+  //filename_ranges = "bcm4b_ranges_Aug23_2022.txt";  1st iter
 
   Int_t coin_run_NUM = 16432;
-  string root_fname = Form("cafe_replay_prod_%d_-1.root",coin_run_NUM);
+  string root_fname = Form("~/cafe_replay_prod_%d_-1.root",coin_run_NUM);
   
   std::vector<Double_t> r1,r2;
   ifstream infile(filename_ranges.c_str());

@@ -12,6 +12,7 @@
 *.root
 
 !runplan/*.pdf
+!CALIBRATION/bcm_calib/*
 
 # Directories
 RAID

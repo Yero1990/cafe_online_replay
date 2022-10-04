@@ -57,7 +57,7 @@ if [ -z "$3" ] && [ "${ana_type}" = "sample" ]; then
     echo "No number of events was specified. Defaulting to 100k event sample"
     echo ""
     echo ":=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:"    
-    evtNum=100000
+    evtNum=-1
     echo "evtNum=$evtNum"
     echo "" 
 elif [ "${ana_type}" = "prod" ]; then
@@ -84,7 +84,7 @@ combine_runs=0
 # hcana script
 if [ "${kin_type}" = "bcm_calib" ]; then
     replay_script="SCRIPTS/COIN/PRODUCTION/replay_cafe_scalers.C"
-    bcm_thrs=-1      # don't apply any bcm cut 
+    #bcm_thrs =-1      # don't apply any bcm cut 
 else
     replay_script="SCRIPTS/COIN/PRODUCTION/replay_cafe.C" 
 fi

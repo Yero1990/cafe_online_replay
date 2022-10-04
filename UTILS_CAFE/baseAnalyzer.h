@@ -1539,7 +1539,11 @@ protected:
 
   //Define Counter Quantities To Store Previous Reads
   Double_t prev_time = 0.;
-  Double_t prev_charge_bcm = 0.;
+  Double_t prev_charge_bcm1 = 0.;
+  Double_t prev_charge_bcm2 = 0.;
+  Double_t prev_charge_bcm4a = 0.;
+  Double_t prev_charge_bcm4b = 0.;
+  Double_t prev_charge_bcm4c = 0.;
   Double_t prev_s1x_scaler = 0;
   Double_t prev_trig1_scaler = 0;
   Double_t prev_trig2_scaler = 0;
@@ -1551,7 +1555,12 @@ protected:
 
   //Define Counter Quantities To Store Accumulated Reads
   Double_t total_time = 0.;
-  Double_t total_charge_bcm = 0.;
+  Double_t total_charge_bcm = 0.; // placeholder for arbitrary BCM type (determined by user)
+  Double_t total_charge_bcm1 = 0.;
+  Double_t total_charge_bcm2 = 0.;
+  Double_t total_charge_bcm4a = 0.;
+  Double_t total_charge_bcm4b = 0.;
+  Double_t total_charge_bcm4c = 0.;
   Double_t total_s1x_scaler = 0;
   Double_t total_trig1_scaler = 0;
   Double_t total_trig2_scaler = 0;
@@ -1563,7 +1572,12 @@ protected:
 
   //Store Accumulated Reads if they passed BCM Current Cut
   Double_t total_time_bcm_cut = 0.;
-  Double_t total_charge_bcm_cut = 0.;
+  Double_t total_charge_bcm_cut = 0.;  // placeholder for arbitrary BCM type (determined by user)
+  Double_t total_charge_bcm1_cut = 0.;
+  Double_t total_charge_bcm2_cut = 0.;
+  Double_t total_charge_bcm4a_cut = 0.;
+  Double_t total_charge_bcm4b_cut = 0.;
+  Double_t total_charge_bcm4c_cut = 0.;
   Double_t total_s1x_scaler_bcm_cut = 0;
   Double_t total_trig1_scaler_bcm_cut = 0;
   Double_t total_trig2_scaler_bcm_cut = 0;
@@ -1604,8 +1618,21 @@ protected:
   //--------SCALER TTREE VARIABLE NAMES (DATA)---------
 
   Double_t Scal_evNum;
-  Double_t Scal_BCM_charge;
-  Double_t Scal_BCM_current;
+  Double_t Scal_BCM_charge;  // generic placeholder for BCM charge (depend on user input)
+  Double_t Scal_BCM_current; // generic placeholder for BCM current
+  
+  // C.Y. Oct 3 : added additional bcm info (to write to report as well)
+  Double_t Scal_BCM1_charge; 
+  Double_t Scal_BCM1_current;
+  Double_t Scal_BCM2_charge; 
+  Double_t Scal_BCM2_current;
+  Double_t Scal_BCM4A_charge; 
+  Double_t Scal_BCM4A_current;
+  Double_t Scal_BCM4B_charge; 
+  Double_t Scal_BCM4B_current;
+  Double_t Scal_BCM4C_charge; 
+  Double_t Scal_BCM4C_current;
+  
   Double_t Scal_time;
   Double_t S1X_scaler;
   Double_t TRIG1_scaler;   

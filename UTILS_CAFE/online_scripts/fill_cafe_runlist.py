@@ -250,7 +250,7 @@ for line in cafe_report:
         bcm_current = float((line.split(":")[1]).strip())
         TestVar+=1
         # print(bcm_current)
-    if "_Charge" in line :
+    if "BCMi_Charge" in line :
         bcm_charge = float((line.split(":")[1]).strip())
         TestVar+=1
         # print(bcm_charge)

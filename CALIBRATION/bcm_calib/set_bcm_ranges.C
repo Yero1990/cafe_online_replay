@@ -35,7 +35,7 @@ void set_bcm_ranges(TString basename="none",Int_t nrun=16432) {
  TString inputroot;
 
  
- inputroot="cafe_replay_prod_16432_-1.root";
+ inputroot="~/cafe_replay_prod_16432_-1.root";
  cout << " infile root = " << inputroot << endl;
 
 
@@ -90,7 +90,7 @@ void set_bcm_ranges(TString basename="none",Int_t nrun=16432) {
      while (check==0) {
 
        //hUnser_Time->Draw("L");
-       hBCM_Time->Draw("L");
+       hBCM_Time->Draw("SCAT");
        
        hBCM_Time->SetMarkerStyle(7);
        hBCM_Time->SetMarkerColor(kBlue);
