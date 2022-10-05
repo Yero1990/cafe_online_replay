@@ -1942,7 +1942,8 @@ void baseAnalyzer::ScalerEventLoop()
 
     
       //Check If BCM Beam Current in Between Reads is Over Threshold
-      // if(abs(Scal_BCM_current-set_current)<bcm_thrs)
+      //set_current = 40.;
+      //if(abs(Scal_BCM_current-set_current)<bcm_thrs)  // set_current +/- bcm_thrs
       if(Scal_BCM_current>bcm_thrs)
 	{
 	  
