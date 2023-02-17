@@ -228,12 +228,12 @@ def main():
     '''
     #print('GEp=',GE_p,':GMp=',GM_p,':sigMott=',sig_Mott,':deForest=',de_Forest)
 
-    Eb = 10600.
-    kf = 9478.
+    Eb = 10549.
+    kf = 9438.
     th_e = 8.3
-    print('H(e,e\') Elastic Cross Section @ Eb = %.1f MeV, kf = %.1f MeV, th_e = %.1f deg' % (Eb, kf, th_e))
-    print('d_sig/d_omega_e [ub/sr] (Bosted parametrization) = %.3E'% sig_heep(10600., 9478., 8.3, 'bosted'))
-    print('d_sig/d_omega_e [ub/sr] (Arrington parametrization)= %.3E'% sig_heep(10600., 9478., 8.3, 'JRA'))
+    print('H(e,e\') Elastic Cross Section: \n Eb = %.1f MeV \n kf = %.1f MeV \n th_e = %.1f deg' % (Eb, kf, th_e))
+    print('d_sig/d_omega_e [ub/sr] (Bosted parametrization) = %.3E'% sig_heep(Eb, kf, th_e, 'bosted'))
+    print('d_sig/d_omega_e [ub/sr] (Arrington parametrization)= %.3E'% sig_heep(Eb, kf, th_e, 'JRA'))
     
 if __name__ == "__main__":
     main()
