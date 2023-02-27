@@ -46,6 +46,7 @@ void replay_cafe(Int_t RunNumber = 0, Int_t MaxEvent = 0, TString ftype="") {
   pathList.push_back("./raw.copiedtotape");
   pathList.push_back("./CACHE_LINKS/cache_pionlt");
   pathList.push_back("./CACHE_LINKS/cache_cafe"); 
+  pathList.push_back("./CACHE_LINKS/cache_deut"); 
 
   //const char* RunFileNamePattern = "raw/coin_all_%05d.dat";
 
@@ -345,7 +346,8 @@ void replay_cafe(Int_t RunNumber = 0, Int_t MaxEvent = 0, TString ftype="") {
   analyzer->SetEvent(event);
 
   // Set EPICS event type
-  analyzer->SetEpicsEvtType(180);
+  analyzer->SetEpicsEvtType(181); 
+  analyzer->AddEpicsEvtType(182);
 
   // Define crate map
   analyzer->SetCrateMapFileName("MAPS/db_cratemap.dat");

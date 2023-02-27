@@ -17,6 +17,7 @@
 # Ca48 gtargmass_amu = 47.95252276
 # Ti48 gtargmass_amu = 47.9479463
 # Fe54 gtargmass_amu = 53.9396147
+# Au197 gtargmass_amu = 196.966570
 #
 # for dummy runs, we want to analyze as if it were LH2 (or LD2), so keep the mass as is (either for 1H or 2H)
 # 27Al gtargmass_amu = 26.98153  (Dummy target should be analyzed as 1H, since it is the background underneath)
@@ -352,7 +353,7 @@ ppartmass = 0.000511
 # Aluminum Hole Check
 16946 - 16958
 gpbeam = 10.549355                       
-gtargmass_amu = 12.0107                
+gtargmass_amu = 26.982
 htheta_lab = -48.30                     
 ptheta_lab = 8.3                      
 hpcentral = 1.820                        
@@ -683,7 +684,7 @@ hpartmass = 0.93827231
 ppartmass = 0.000511
 
 # Fe54 SRC Kinematics                                                              
-17135 - 999999                                                                         
+17135 - 17144                                                                        
 gpbeam = 10.549355                                      
 gtargmass_amu = 53.9396147
 htheta_lab = -66.40                                                                                        
@@ -692,4 +693,150 @@ hpcentral = 1.325
 ppcentral = 8.55                                                          
 hpartmass = 0.93827231                                                                  
 ppartmass = 0.000511
+
+
+
+#=========================================#
+#=======CAFE RUN FOR FEB/2023=============
+
+#Comics run test for tringger restore Feb/2023
+20771 - 20775
+gpbeam = 10.549355                        
+gtargmass_amu = 196.966570
+htheta_lab = -48.30                     
+ptheta_lab = 8.3                      
+hpcentral = 1.820                        
+ppcentral = 8.55                        
+hpartmass = 0.93827231                 
+ppartmass = 0.000511  
+
+
+#Please change to this when we start taking data 
+#=====CAFE Set @ Mean-Field for Feb/2023=======#
+#----------------------------------------------#
+#Copy block for Aluminum Hole Check and modify it 
+
+20776 - 20782
+gpbeam = 10.549355                        
+gtargmass_amu = 26.982
+htheta_lab = -48.30                     
+ptheta_lab = 8.3                      
+hpcentral = 1.820                        
+ppcentral = 8.55                        
+hpartmass = 0.93827231                 
+ppartmass = 0.000511  
+
+# Hydrogen target (loop 2)
+20783
+gpbeam = 10.549355                        
+gtargmass_amu = 1.00794
+htheta_lab = -48.30                     
+ptheta_lab = 8.3                      
+hpcentral = 1.820                        
+ppcentral = 8.55                        
+hpartmass = 0.93827231                 
+ppartmass = 0.000511  
+
+# Hydrogen target (loop 2)
+20784
+gpbeam = 10.549355                        
+gtargmass_amu = 1.00794
+htheta_lab = -48.30                     
+ptheta_lab = 8.3                      
+hpcentral = 1.820                        
+ppcentral = 8.55                        
+hpartmass = 0.93827231                 
+ppartmass = 0.000511  
+
+
+#copy block for C12 Mean-field and modify it 
+
+# 20785 - 28 uA
+# Carbon target 
+20785
+gpbeam = 10.549355
+gtargmass_amu = 12.0107
+htheta_lab = -48.30                     
+ptheta_lab = 8.3                      
+hpcentral = 1.820                        
+ppcentral = 8.55                        
+hpartmass = 0.938231                 
+ppartmass = 0.000511  
+
+# 20786 - 28 uA
+# Carbon target 
+20786 
+gpbeam = 10.549355
+gtargmass_amu = 12.0107
+htheta_lab = -48.30                     
+ptheta_lab = 8.3                      
+hpcentral = 1.820                        
+ppcentral = 8.55                        
+hpartmass = 0.938231                 
+ppartmass = 0.000511  
+
+# 20786 - 40 uA
+# Carbon target 
+20787 - 20788
+gpbeam = 10.549355
+gtargmass_amu = 12.0107
+htheta_lab = -48.30                     
+ptheta_lab = 8.3                      
+hpcentral = 1.820                        
+ppcentral = 8.55                        
+hpartmass = 0.938231                 
+ppartmass = 0.000511  
+#gtargmass_amu = 12.0107
+
+#Create new block for Au mean-field
+# Au target 
+20789 
+gpbeam = 10.549355
+gtargmass_amu = 196.966570
+htheta_lab = -48.30                     
+ptheta_lab = 8.3                      
+hpcentral = 1.820                        
+ppcentral = 8.55                        
+hpartmass = 0.938231                 
+ppartmass = 0.000511  
+
+# 20 uA
+# Carbon target 
+20790 - 20792
+gpbeam = 10.549355
+gtargmass_amu = 12.0107
+htheta_lab = -48.30                     
+ptheta_lab = 8.3                      
+hpcentral = 1.820                        
+ppcentral = 8.55                        
+hpartmass = 0.938231                 
+ppartmass = 0.000511  
+#gtargmass_amu = 12.0107
+
+#Create new block for Au mean-field
+# Au target 
+20793 - 20799
+gpbeam = 10.549355
+gtargmass_amu = 196.966570
+htheta_lab = -48.30                     
+ptheta_lab = 8.3                      
+hpcentral = 1.820                        
+ppcentral = 8.55                        
+hpartmass = 0.938231                 
+ppartmass = 0.000511  
+
+#=========CAFE set @SRC for Feb/2023========#
+
+# Create a block for Au SRC Kinematic 
+
+# Au target 
+20800 - 9999999
+gpbeam = 10.549355
+gtargmass_amu = 196.966570
+htheta_lab = -66.4                     
+ptheta_lab = 8.3                      
+hpcentral = 1.325                        
+ppcentral = 8.55                        
+hpartmass = 0.938231                 
+ppartmass = 0.000511  
 

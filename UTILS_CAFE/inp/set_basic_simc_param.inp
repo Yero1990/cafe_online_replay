@@ -27,7 +27,7 @@ heep_kin2_counts = 1500000.
 # See https://hallcweb.jlab.org/wiki/images/0/0d/CAFE_rate_AND_run_plan_07012022.pdf
 
 # beam current [uA]
-cafe_Ib_simc = 80.
+cafe_Ib_simc = 40.
 
 # CaFe MF production rates estimates [Hz]
 LD2_MF_rates  = 139.16
@@ -39,6 +39,7 @@ Ca40_MF_rates = 29.62
 Ca48_MF_rates = 29.62
 Ti48_MF_rates = -1.
 Fe54_MF_rates = 15.27
+Au197_MF_rates = 15.27
 
 # CaFe MF production time estimates [hr]
 LD2_MF_time  = 0.5
@@ -50,17 +51,19 @@ Ca40_MF_time = 0.5
 Ca48_MF_time = 0.5
 Ti48_MF_time = -1
 Fe54_MF_time = 1.0
+Au197_MF_time =  1.0
 
 # CaFe MF production total count goal estimates 
 LD2_MF_counts  = 250000.
 Be9_MF_counts  = 98000.
 B10_MF_counts  = 57000.
 B11_MF_counts  = 63000.
-C12_MF_counts  = 52000.
+C12_MF_counts  = 60000.
 Ca40_MF_counts = 53000.
 Ca48_MF_counts = 53000.
 Ti48_MF_counts = -1.
 Fe54_MF_counts = 55000.
+Au197_MF_counts = 40000.
 
 
 # CaFe SRC production rates estimates [Hz]
@@ -73,6 +76,8 @@ Ca40_SRC_rates = 0.202
 Ca48_SRC_rates = 0.202
 Ti48_SRC_rates = -1.
 Fe54_SRC_rates = 0.121
+Au197_SRC_rates = 0.2
+
 
 # CaFe SRC production time estimates [hr]
 LD2_SRC_time  = 7.
@@ -84,6 +89,7 @@ Ca40_SRC_time = 12.
 Ca48_SRC_time = 12.
 Ti48_SRC_time = -1
 Fe54_SRC_time = 20.
+Au197_SRC_time = 20.
 
 # CaFe SRC production total count goal estimates 
 LD2_SRC_counts  = 5300. 
@@ -94,4 +100,5 @@ C12_SRC_counts  = 5000.
 Ca40_SRC_counts = 8700.
 Ca48_SRC_counts = 8700.
 Ti48_SRC_counts = -1.
-Fe54_SRC_counts = 8700.
+Fe54_SRC_counts = 8700
+Au197_SRC_counts = 5000.

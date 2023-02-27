@@ -35,7 +35,9 @@ cafe_report = open(cafe_report_path)
 
 
 # define filenames
-fname_path='UTILS_CAFE/runlist/cafe-2022_runlist.csv'                                                                                                                                         
+#fname_path='UTILS_CAFE/runlist/cafe-2022_runlist.csv'
+fname_path='UTILS_CAFE/runlist/cafe-2023_runlist.csv'
+#fname_path='UTILS_CAFE/runlist/cafe-2022_runlist_test.csv'                                                                                                                                       
 temp_fname_path='UTILS_CAFE/runlist/temp.csv' # temporary file (for overwriting entry, if the user desires)                                                                                    
     
 

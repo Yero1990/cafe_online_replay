@@ -999,6 +999,14 @@ void baseAnalyzer::ReadReport()
     tgt_type = "Ti48";
     tgt_mass = MTi48_amu; tgt_density = rho_Ti48; tgt_thickness = thick_Ti48;
   }
+
+  //adding the gold target to Feb-2023 CaFe run
+ else if(abs(temp_var-MAu197_amu)<=max_diff){
+    tgt_type = "Au197";
+    tgt_mass = MAu197_amu; tgt_density = rho_Au197; tgt_thickness = thick_Au197;
+    cout << "DEBUGGGG:::::::"<< endl;
+    cout << "Check target type: "<< tgt_type.Data()<< endl;
+  }
   
   else{
     cout << "Target mass (amu) mis-match of >1E-6 between this script and standard.kinematics . . . Check target mass is set correctly in standard.kinematics file !" << endl;
@@ -3868,7 +3876,8 @@ void baseAnalyzer::ScaleSIMC(TString target="")
   if(target=="Ca40" && analysis_cut=="MF")  scale_factor = ( T("Ca40") / T("C12") ) * ( sig_A("Ca40") / sig_A("C12") ) ;
   if(target=="Ca48" && analysis_cut=="MF")  scale_factor = ( T("Ca48") / T("C12") ) * ( sig_A("Ca48") / sig_A("C12") ) ;
   if(target=="Fe54" && analysis_cut=="MF")  scale_factor = ( T("Fe54") / T("C12") ) * ( sig_A("Fe54") / sig_A("C12") ) ;
-
+  //adding Au target for Fe-2023 CaFe run
+  if(target=="Au197" && analysis_cut=="MF")  scale_factor = ( T("Au197") / T("C12") ) * ( sig_A("Au197") / sig_A("C12") ) ;
 
   // determine scale factors for various targets (scale deuteron SRC simulation by other targets)
   if(target=="Be9" && analysis_cut=="SRC") scale_factor = ( T("Be9") / T("LD2") ) * ( sig_A("Be9") / sig_A("LD2") ) * a2("Be9") ;
@@ -3878,6 +3887,8 @@ void baseAnalyzer::ScaleSIMC(TString target="")
   if(target=="Ca40" && analysis_cut=="SRC") scale_factor = ( T("Ca40") / T("LD2") ) * ( sig_A("Ca40") / sig_A("LD2") ) * a2("Ca40") ;
   if(target=="Ca48" && analysis_cut=="SRC") scale_factor = ( T("Ca48") / T("LD2") ) * ( sig_A("Ca48") / sig_A("LD2") ) * a2("Ca48") ;
   if(target=="Fe54" && analysis_cut=="SRC") scale_factor = ( T("Fe54") / T("LD2") ) * ( sig_A("Fe54") / sig_A("LD2") ) * a2("Fe54") ;
+  //adding Au target for Feb-2023 CaFe run 
+  if(target=="Au197" && analysis_cut=="SRC") scale_factor = ( T("Au197") / T("LD2") ) * ( sig_A("Au197") / sig_A("LD2") ) * a2("Au197") ;
 
 
   
